@@ -53,7 +53,7 @@ html {
   gap: 10px;
   padding: 12px 16px;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent) 0%, #ff3b68 100%);
+  background: #da0137c2;
   color: #fff;
   font-weight: 800;
   text-decoration: none;
@@ -67,6 +67,7 @@ html {
   transform: translateY(-1px);
   filter: brightness(1.02);
   box-shadow: 0 20px 48px rgba(214, 0, 51, 0.26);
+  background: #da01375b;
 }
 
 .cta:active {
@@ -82,8 +83,8 @@ html {
   color: var(--text);
   text-decoration: none;
   font-weight: 800;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 0.712);
   transition: transform 160ms ease, background 160ms ease;
 }
 
@@ -97,15 +98,15 @@ html {
 }
 
 .hero-frame {
-  max-width: min(1300px, calc(100vw - 10px));
-  margin: 20px auto;
+  max-width: min(1050px, calc(100vw - 10px));
+  margin: 25px auto;
   position: relative;
   border-radius: calc(var(--radius) + 8px);
   overflow: hidden;
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.10);
-  min-height: 520px;
-  background: rgba(255, 255, 255, 0.03);
+  min-height: 620px;
+  background: rgba(255, 255, 255, 0.041);
 }
 
 .hero-slide {
@@ -128,10 +129,12 @@ html {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,
-      rgba(7, 12, 18, 0.82) 0%,
-      rgba(7, 12, 18, 0.55) 55%,
-      rgba(7, 12, 18, 0.25) 100%),
+    linear-gradient(
+      90deg,
+      rgba(7, 12, 18, 0.534) 0%,
+      rgba(7, 12, 18, 0.452) 55%,
+      rgba(7, 12, 18, 0.25) 100%
+    ),
     linear-gradient(180deg, rgba(7, 12, 18, 0.15) 0%, rgba(7, 12, 18, 0.60) 100%);
 }
 
@@ -148,17 +151,20 @@ html {
   gap: 8px;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(214, 0, 51, 0.14);
+  background:#da013736;
   border: 1px solid rgba(214, 0, 51, 0.26);
   color: rgba(255, 255, 255, 0.92);
   font-weight: 800;
   letter-spacing: 0.3px;
   font-size: 12px;
   text-transform: uppercase;
+  margin-bottom: -150px;
+  margin-top: 50px;
 }
 
 .hero-title {
-  margin: 18px 0 10px;
+  margin-bottom: -40px;
+  margin-top: 20px;
   font-weight: 900;
   font-size: clamp(30px, 3.2vw, 44px);
   line-height: 1.05;
@@ -170,7 +176,7 @@ html {
 }
 
 .hero-subtitle {
-  margin: 0;
+  margin-top: 50px;
   color: var(--muted);
   font-size: 18px;
   line-height: 2.15;
@@ -179,24 +185,29 @@ html {
 
 .hero-actions {
   margin-top: 35px;
+  margin-bottom: -10px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
 .hero-mini {
-  margin-top: 44px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  margin-top: 69px;
+  display: flex;              /* ✅ use flex so cards stay grouped */
+  gap: 10px;                  /* ✅ actual visible spacing */
+  align-items: stretch;
+  justify-content: flex-start; /* ✅ keep them tight on the left */
+  flex-wrap: nowrap;
 }
 
 .mini-card {
-  background: rgba(255, 255, 255, 0.08);
+  background: #da013746;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 16px;
   padding: 22px 18px;
   min-height: 96px;
+  width: 250px;      /* ✅ fixed width = consistent tight spacing */
+  max-width: 250px;  /* ✅ keep your current visual size */
 }
 
 .mini-kicker {
@@ -218,41 +229,6 @@ html {
   font-size: 14px;
   margin-top: 6px;
   line-height: 1.35;
-}
-
-.nav {
-  position: absolute;
-  top: 50%;
-  z-index: 3;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(7, 12, 18, 0.45);
-  color: #fff;
-  font-size: 28px;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: background 160ms ease, transform 160ms ease;
-}
-
-.nav:hover {
-  background: rgba(7, 12, 18, 0.62);
-}
-
-.nav:active {
-  transform: translateY(-50%) scale(0.98);
-}
-
-.nav-left {
-  left: 12px;
-}
-
-.nav-right {
-  right: 12px;
 }
 
 .dots {
@@ -307,8 +283,8 @@ html {
 .grid {
   margin-top: 16px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .card {
@@ -332,13 +308,14 @@ html {
 
 .pricing-wrap {
   margin-top: 16px;
-  display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
-  gap: 12px;
-  align-items: start;
+  display: flex;               /* ✅ center single pricing card on desktop */
+  justify-content: center;     /* ✅ horizontal centering */
+  width: 100%;
 }
 
 .pricing {
+  width: 100%;
+  max-width: 700px;            /* ✅ keeps card compact and centered */
   border-radius: calc(var(--radius) + 6px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -422,47 +399,21 @@ html {
 
 .pricing-actions {
   padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ centers button */
 }
 
 .cta-wide {
-  width: 100%;
+  width: 70%;
+  margin: 0 auto; /* ✅ centers button horizontally */
 }
 
 .fineprint {
   margin-top: 10px;
   color: var(--muted2);
   font-size: 12px;
-}
-
-.finecard {
-  border-radius: calc(var(--radius) + 2px);
-  padding: 16px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.finecard-title {
-  font-weight: 950;
-  margin-bottom: 10px;
-}
-
-.finecard-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.finecard-row:first-of-type {
-  border-top: 0;
-}
-
-.finecard-note {
-  margin-top: 12px;
-  color: var(--muted);
-  line-height: 1.6;
-  font-size: 13px;
+  text-align: center;
 }
 
 .footer {
@@ -495,6 +446,14 @@ html {
   color: rgba(255, 255, 255, 0.86);
 }
 
+/* ✅ Align pricing header with centered pricing card (desktop) */
+#pricing .section-head {
+  max-width: 400px;   /* match .pricing max-width */
+  margin: 0 auto;     /* center it */
+  width: 100%;
+  text-align: center;
+}
+
 /* Tablet */
 @media (max-width: 980px) {
   .hero-mini {
@@ -506,16 +465,10 @@ html {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  .pricing-wrap {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ===== FORCE MOBILE CENTERING (keep this LAST) ===== */
 @media screen and (max-width: 768px) {
-  /* all your centering rules in that block */
-
   .hero-frame {
     min-height: 620px !important;
   }
@@ -537,11 +490,10 @@ html {
     text-align: center !important;
     margin: 12px auto 8px !important;
     white-space: normal !important;
-    /* allow wrap on small screens */
     overflow: visible !important;
     text-overflow: clip !important;
     max-width: 100% !important;
-    line-height: 1.15 !important;
+    line-height: 1.35 !important;
     font-size: clamp(24px, 7vw, 32px) !important;
   }
 
@@ -558,9 +510,9 @@ html {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 10px !important;
+    gap: 15px !important;
     width: 100% !important;
-    margin-top: 16px !important;
+    margin-top: 25px !important;
   }
 
   .hero .hero-actions .cta,
@@ -575,16 +527,16 @@ html {
   .hero .hero-mini {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 10px !important;
+    gap: 0px !important;
     width: 100% !important;
-    margin-top: 16px !important;
+    margin-top: 12px !important;
     justify-items: center !important;
   }
 
   .hero .mini-card {
     width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
+    max-width: 90% !important;
+    margin-top: 20px;
     text-align: center !important;
     padding: 14px 12px !important;
   }
@@ -668,15 +620,15 @@ html {
     text-align: center !important;
   }
 
+  .pricing .cta-wide {
+    width: min(100%, 320px) !important;
+    margin: 0 auto !important;
+  }
+
   /* optional: keep bullet list readable */
   .pricing .list {
     text-align: left !important;
     padding-left: 26px !important;
-  }
-
-  /* hide arrows on mobile */
-  .nav {
-    display: none !important;
   }
 
   /* footer */

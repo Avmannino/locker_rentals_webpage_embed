@@ -20,7 +20,7 @@ export default function App() {
       {
         src: hero1,
         headline: "Locker Rentals Now Available!",
-        subhead: "Locker Up, Stress Down.",
+        subhead: "Locker Up, Hassle-Free.",
       },
       {
         src: hero2,
@@ -48,8 +48,9 @@ export default function App() {
   const body =
     "Hi Jon,\n\nI’d like to reserve a Classic Locker for Spring & Summer 2026.\n\nName:\nPhone:\nEmail:\nPreferred start date:\n\nThanks!";
 
-  const reserveEmailHref =
-    `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const reserveEmailHref = `mailto:${toEmail}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
 
   useEffect(() => {
     if (paused) return;
@@ -65,13 +66,13 @@ export default function App() {
     setActive(i);
   }
 
-  function prev() {
-    setActive((p) => (p - 1 + slides.length) % slides.length);
-  }
-
-  function next() {
-    setActive((p) => (p + 1) % slides.length);
-  }
+  // Keeping these in case you want arrows back later
+  // function prev() {
+  //   setActive((p) => (p - 1 + slides.length) % slides.length);
+  // }
+  // function next() {
+  //   setActive((p) => (p + 1) % slides.length);
+  // }
 
   return (
     <div className="page">
@@ -123,17 +124,12 @@ export default function App() {
               <div className="mini-card">
                 <div className="mini-kicker">Size</div>
                 <div className="mini-strong">Full-Size Lockers</div>
-                <div className="mini-muted">Room for your full setup</div>
+                <div className="mini-muted">Room for all your gear and more!</div>
               </div>
             </div>
           </div>
 
-          <button className="nav nav-left" onClick={prev} aria-label="Previous">
-            ‹
-          </button>
-          <button className="nav nav-right" onClick={next} aria-label="Next">
-            ›
-          </button>
+          {/* ✅ Arrows removed */}
 
           <div className="dots" aria-label="Carousel navigation">
             {slides.map((_, i) => (
@@ -154,7 +150,8 @@ export default function App() {
           <div className="section-head">
             <h2>Why Rent a Locker?</h2>
             <p>
-              Enjoy a smoother, quicker routine every visit—leave the gear hauling behind.
+              Enjoy a smoother, quicker routine every visit—leave the gear hauling
+              behind.
             </p>
           </div>
 
@@ -213,7 +210,7 @@ export default function App() {
         <section id="pricing" className="section">
           <div className="section-head">
             <h2>Pricing</h2>
-            <p>Simple, season-ready pricing—built for Spring & Summer 2026.</p>
+            <p>6 Month Rental - First Month Free!</p>
           </div>
 
           <div className="pricing-wrap">
@@ -221,9 +218,7 @@ export default function App() {
               <div className="pricing-top">
                 <div className="pricing-badge">First Month Free</div>
                 <div className="pricing-title">Locker Rental</div>
-                <div className="pricing-sub">
-                  Covers Spring & Summer 2026 • {MONTHS} months
-                </div>
+                <div className="pricing-sub">{MONTHS} month</div>
               </div>
 
               <div className="pricing-price">
@@ -257,32 +252,8 @@ export default function App() {
                 </a>
 
                 <div className="fineprint">
-                  Questions? Stop by the front desk or call the rink.
+                  Questions? Stop by the front desk or call us at 203-357-1055.
                 </div>
-              </div>
-            </div>
-
-            <div className="finecard">
-              <div className="finecard-title">Pricing Summary</div>
-              <div className="finecard-row">
-                <span>Promo</span>
-                <span>First month free</span>
-              </div>
-              <div className="finecard-row">
-                <span>Monthly</span>
-                <span>{formatMoney(MONTHLY_PRICE)}/mo</span>
-              </div>
-              <div className="finecard-row">
-                <span>Total (6-month term)</span>
-                <span>{formatMoney(TOTAL)}</span>
-              </div>
-              <div className="finecard-row">
-                <span>Season</span>
-                <span>Spring & Summer 2026</span>
-              </div>
-              <div className="finecard-note">
-                Lockers are limited—reserve early to secure rinkside storage for
-                the season.
               </div>
             </div>
           </div>
