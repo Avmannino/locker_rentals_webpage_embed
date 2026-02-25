@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 
@@ -139,11 +138,11 @@ export default function App() {
       {/* CONTENT */}
       <main className="main">
         <section id="details" className="section">
-          <div className="section-head">
+          <div className="section-head-why">
             <h2>Why Rent a Locker?</h2>
             <p>
-              Enjoy a smoother, quicker routine every visit—leave the gear hauling
-              behind.
+              Enable a smoother, quicker routine every visit—leave your gear
+              where you need it next.
             </p>
           </div>
 
@@ -172,7 +171,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="card">
+            {/* ✅ Hide on mobile only */}
+            <div className="card mobile-hide-card">
               <div className="card-title">Be Ready Faster</div>
               <div className="card-body">
                 Show up, gear up, and get on the ice—ideal for busy families,
@@ -180,7 +180,8 @@ export default function App() {
               </div>
             </div>
 
-            <div className="card">
+            {/* ✅ Hide on mobile only */}
+            <div className="card mobile-hide-card">
               <div className="card-title">Keep Your Car Clean</div>
               <div className="card-body">
                 Keep sweaty equipment out of your trunk. Store it properly and
@@ -208,9 +209,16 @@ export default function App() {
           <div className="pricing-wrap">
             <div className="pricing">
               <div className="pricing-top">
-                <div className="pricing-badge">First Month Free</div>
+                <div className="pricing-badge">
+                  Limited Availability
+                  <span
+                    className="availability-dot"
+                    aria-hidden="true"
+                    title="Limited availability"
+                  />
+                </div>
                 <div className="pricing-title">Locker Rental</div>
-                <div className="pricing-sub">{MONTHS} month</div>
+                <div className="pricing-sub">{MONTHS} months</div>
               </div>
 
               <div className="pricing-price">
