@@ -5,7 +5,7 @@
   --stroke: rgba(255, 255, 255, 0.14);
   --text: #f2f6fb;
   --muted: rgba(242, 246, 251, 0.72);
-  --muted2: rgba(242, 246, 251, 0.55);
+  --muted2: rgba(242, 246, 251, 0.76);
   --accent: #d60033;
   --accent2: #003764;
   --good: #3ddc97;
@@ -49,7 +49,7 @@ html {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px 16px;
+  padding: 16px 19px;
   border-radius: 999px;
   background: #da0137c2;
   color: #fff;
@@ -129,9 +129,9 @@ html {
   background:
     linear-gradient(
       90deg,
-      rgba(7, 12, 18, 0.534) 0%,
-      rgba(7, 12, 18, 0.452) 55%,
-      rgba(7, 12, 18, 0.25) 100%
+      rgba(7, 12, 18, 0.137) 0%,
+      rgba(7, 12, 18, 0.062) 55%,
+      rgba(7, 12, 18, 0.103) 100%
     ),
     linear-gradient(180deg, rgba(7, 12, 18, 0.15) 0%, rgba(7, 12, 18, 0.60) 100%);
 }
@@ -180,7 +180,7 @@ html {
 
 .hero-subtitle {
   margin-top: 50px;
-  color: var(--muted);
+  color: #ffffffc2;
   font-size: 18px;
   line-height: 2.15;
   max-width: 65ch;
@@ -212,7 +212,7 @@ html {
 }
 
 .mini-card {
-  background: #da013773;
+  background: #da0137b6;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 16px;
   padding: 12px 16px;
@@ -659,7 +659,7 @@ html {
 
   .hero .mini-card {
     width: 100% !important;
-    max-width: 70% !important;
+    max-width: 55% !important;
     max-height: 120px !important;
     margin-top: 18px; /* ✅ reduced from 25px */
     text-align: center !important;
@@ -699,7 +699,7 @@ html {
   }
 
   .grid .card {
-    width: 100% !important;
+    width: 85% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
     text-align: center !important;

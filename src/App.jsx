@@ -94,9 +94,9 @@ export default function App() {
               <a className="cta" href="#pricing">
                 Lock In Your Spot
               </a>
-              <a className="ghost" href="#details">
+              {/* <a className="ghost" href="#details">
                 See Features
-              </a>
+              </a> */}
             </div>
 
             <div className="hero-mini">
@@ -139,7 +139,7 @@ export default function App() {
       <main className="main">
         <section id="details" className="section">
           <div className="section-head-why">
-            <h2>Why Rent a Locker?</h2>
+            <h2>Store Your Stuff</h2>
             <p>
               Enable a smoother, quicker routine every visit—leave your gear
               where you need it next.
