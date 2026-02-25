@@ -20,7 +20,7 @@ export default function App() {
       {
         src: hero1,
         headline: "Locker Rentals Now Available!",
-        subhead: "Rinkside convenience in a full-size locker.",
+        subhead: "Locker Up, Stress Down.",
       },
       {
         src: hero2,
@@ -42,24 +42,14 @@ export default function App() {
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
 
-  // ✅ Email chooser modal state
-  const [emailOpen, setEmailOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  // Email details
+  // ✅ Email details (default mail app via mailto)
   const toEmail = "jwanderlingh@wingsarena.com";
   const subject = "Locker Rental Request (Spring & Summer 2026)";
   const body =
     "Hi Jon,\n\nI’d like to reserve a Classic Locker for Spring & Summer 2026.\n\nName:\nPhone:\nEmail:\nPreferred start date:\n\nThanks!";
 
-  const subjectEnc = encodeURIComponent(subject);
-  const bodyEnc = encodeURIComponent(body);
-  const toEnc = encodeURIComponent(toEmail);
-
-  // Browser-based compose links (do NOT depend on OS default mail app)
-  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${toEnc}&su=${subjectEnc}&body=${bodyEnc}`;
-  const outlookWebUrl = `https://outlook.office.com/mail/deeplink/compose?to=${toEnc}&subject=${subjectEnc}&body=${bodyEnc}`;
-  const yahooUrl = `https://compose.mail.yahoo.com/?to=${toEnc}&subject=${subjectEnc}&body=${bodyEnc}`;
+  const reserveEmailHref =
+    `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   useEffect(() => {
     if (paused) return;
@@ -70,15 +60,6 @@ export default function App() {
 
     return () => clearInterval(intervalRef.current);
   }, [paused, slides.length]);
-
-  // Close modal on Escape
-  useEffect(() => {
-    function onKeyDown(e) {
-      if (e.key === "Escape") setEmailOpen(false);
-    }
-    if (emailOpen) window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [emailOpen]);
 
   function goTo(i) {
     setActive(i);
@@ -92,27 +73,8 @@ export default function App() {
     setActive((p) => (p + 1) % slides.length);
   }
 
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText(toEmail);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
-    } catch {
-      const ta = document.createElement("textarea");
-      ta.value = toEmail;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      document.body.removeChild(ta);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1400);
-    }
-  }
-
   return (
     <div className="page">
-      {/* ✅ Removed top header/topbar entirely */}
-
       {/* HERO CAROUSEL */}
       <section
         className="hero"
@@ -132,7 +94,7 @@ export default function App() {
 
           <div className="hero-overlay" />
           <div className="hero-content">
-            <div className="pill">Spring & Summer 2026</div>
+            <div className="pill">Wings Arena</div>
             <h1 className="hero-title">{slides[active].headline}</h1>
             <p className="hero-subtitle">{slides[active].subhead}</p>
 
@@ -147,7 +109,7 @@ export default function App() {
 
             <div className="hero-mini">
               <div className="mini-card">
-                <div className="mini-kicker">Deal</div>
+                <div className="mini-kicker">Spring Promo</div>
                 <div className="mini-strong">First Month Free</div>
                 <div className="mini-muted">
                   {formatMoney(MONTHLY_PRICE)}/month • {MONTHS} months
@@ -192,8 +154,7 @@ export default function App() {
           <div className="section-head">
             <h2>Why Rent a Locker?</h2>
             <p>
-              Turn every visit into a smoother, faster routine—no more hauling
-              gear in and out of the building.
+              Enjoy a smoother, quicker routine every visit—leave the gear hauling behind.
             </p>
           </div>
 
@@ -291,13 +252,9 @@ export default function App() {
               </ul>
 
               <div className="pricing-actions">
-                <button
-                  type="button"
-                  className="cta cta-wide"
-                  onClick={() => setEmailOpen(true)}
-                >
+                <a className="cta cta-wide" href={reserveEmailHref}>
                   Email Us To Reserve Your Locker!
-                </button>
+                </a>
 
                 <div className="fineprint">
                   Questions? Stop by the front desk or call the rink.
@@ -330,13 +287,6 @@ export default function App() {
             </div>
           </div>
         </section>
-
-        {/* ✅ Bottom pill banner: ONLY heated locker text */}
-        <section className="section">
-          <div className="banner banner-center">
-            <div className="banner-cta-text">Heated Locker Option - Coming Soon!</div>
-          </div>
-        </section>
       </main>
 
       <footer className="footer">
@@ -351,82 +301,6 @@ export default function App() {
           </div>
         </div>
       </footer>
-
-      {/* ✅ Email Service Chooser Modal */}
-      {emailOpen && (
-        <div
-          className="modal-backdrop"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Choose email service"
-          onMouseDown={(e) => {
-            if (e.target === e.currentTarget) setEmailOpen(false);
-          }}
-        >
-          <div className="modal">
-            <div className="modal-head">
-              <div>
-                <div className="modal-title">Email to Reserve</div>
-                <div className="modal-sub">
-                  Choose your email service to send a reservation request.
-                </div>
-              </div>
-              <button
-                type="button"
-                className="modal-x"
-                onClick={() => setEmailOpen(false)}
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="modal-body">
-              <div className="modal-email">
-                To: <span className="mono">{toEmail}</span>
-              </div>
-
-              <div className="modal-actions">
-                <a className="svc" href={gmailUrl} target="_blank" rel="noreferrer">
-                  Gmail (web)
-                </a>
-
-                <a
-                  className="svc"
-                  href={outlookWebUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Outlook (web)
-                </a>
-
-                <a className="svc" href={yahooUrl} target="_blank" rel="noreferrer">
-                  Yahoo Mail
-                </a>
-
-                <button type="button" className="svc ghostbtn" onClick={copyEmail}>
-                  {copied ? "Copied!" : "Copy Email Address"}
-                </button>
-              </div>
-
-              <div className="modal-note">
-                If you prefer, you can also email manually and include:{" "}
-                <span className="mono">{subject}</span>
-              </div>
-            </div>
-
-            <div className="modal-foot">
-              <button
-                type="button"
-                className="ghostbtn"
-                onClick={() => setEmailOpen(false)}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
