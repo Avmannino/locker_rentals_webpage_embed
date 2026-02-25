@@ -97,7 +97,7 @@ html {
 
 .hero-frame {
   max-width: min(1050px, calc(100vw - 10px));
-  margin: 25px auto;
+  margin: 5px auto;
   position: relative;
   border-radius: calc(var(--radius) + 8px);
   overflow: hidden;
@@ -127,10 +127,12 @@ html {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       rgba(7, 12, 18, 0.534) 0%,
       rgba(7, 12, 18, 0.452) 55%,
-      rgba(7, 12, 18, 0.25) 100%),
+      rgba(7, 12, 18, 0.25) 100%
+    ),
     linear-gradient(180deg, rgba(7, 12, 18, 0.15) 0%, rgba(7, 12, 18, 0.60) 100%);
 }
 
@@ -169,6 +171,11 @@ html {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+
+  /* ✅ Reserve consistent title space so below elements don't move */
+  min-height: calc(1.05em * 1.2);
+  display: flex;
+  align-items: flex-end;
 }
 
 .hero-subtitle {
@@ -177,11 +184,16 @@ html {
   font-size: 18px;
   line-height: 2.15;
   max-width: 65ch;
+
+  /* ✅ Reserve consistent subtitle space so buttons/cards stay locked */
+  min-height: calc(2.15em * 3);
+  display: flex;
+  align-items: flex-start;
 }
 
 .hero-actions {
-  margin-top: 35px;
-  margin-bottom: -10px;
+  margin-top: -55px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -200,7 +212,7 @@ html {
 }
 
 .mini-card {
-  background: #da013746;
+  background: #da013773;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 16px;
   padding: 12px 16px;
@@ -240,7 +252,7 @@ html {
   right: 0;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
 }
 
 .dot {
@@ -283,14 +295,14 @@ html {
   text-align: center;
 }
 
-  .section-head-why h2 {
-    margin-top: -20px;
-    text-align: center !important;
-  }
+.section-head-why h2 {
+  margin-top: -20px;
+  text-align: center !important;
+}
 
-  .section-head-why p {
-    text-align: center !important;
-  }
+.section-head-why p {
+  text-align: center !important;
+}
 
 .grid {
   margin-top: 16px;
@@ -373,7 +385,6 @@ html {
 }
 
 @keyframes slowBlinkDot {
-
   0%,
   100% {
     opacity: 1;
@@ -524,8 +535,20 @@ html {
 
 /* ===== FORCE MOBILE CENTERING (keep this LAST) ===== */
 @media screen and (max-width: 768px) {
+  /* ✅ Mobile hero/carousel full-bleed (no rounded corners) */
+  .hero {
+    padding: 0 !important;
+  }
+
   .hero-frame {
-    min-height: 620px !important;
+    min-height: 660px !important;
+    max-width: 100vw !important;
+    width: 100vw !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    box-shadow: none !important;
   }
 
   /* HERO */
@@ -533,7 +556,41 @@ html {
     text-align: center !important;
     margin: 0 auto !important;
     max-width: 100% !important;
-    padding: 20px 14px 18px !important;
+    padding: 20px 14px 56px !important; /* ✅ extra bottom room for dots */
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(7, 12, 18, 0) 0%,
+        rgba(7, 12, 18, 0.486) 55%,
+        rgba(7, 12, 18, 0) 100%
+      ),
+      linear-gradient(180deg, rgba(7, 12, 18, 0.15) 0%, rgba(7, 12, 18, 0.60) 100%);
+  }
+
+  .dots {
+    position: absolute;
+    z-index: 9999 !important;
+    bottom: 16px; /* ✅ slightly lower */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .dot {
+    width: 20px;
+    height: 15px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    transition: transform 160ms ease, background 160ms ease;
   }
 
   .hero .pill {
@@ -549,15 +606,27 @@ html {
     text-overflow: clip !important;
     max-width: 100% !important;
     line-height: 1.35 !important;
-    font-size: clamp(24px, 7vw, 32px) !important;
+    font-size: clamp(28px, 7vw, 32px) !important;
+
+    /* ✅ Reserve mobile title space so buttons/cards don't move */
+    min-height: calc(1.35em * 2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .hero .hero-subtitle {
     text-align: center !important;
-    margin: 0 auto !important;
+    margin: 15px auto !important;
     max-width: 32ch !important;
-    line-height: 1.45 !important;
-    font-size: 15px !important;
+    line-height: 1.25 !important;
+    font-size: 18px !important;
+
+    /* ✅ Reserve mobile subtitle space so layout stays locked */
+    min-height: calc(1.45em * 3) !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
   }
 
   .hero .hero-actions {
@@ -567,7 +636,7 @@ html {
     justify-content: center !important;
     gap: 15px !important;
     width: 100% !important;
-    margin-top: 25px !important;
+    margin-top: -20px !important;
   }
 
   .hero .hero-actions .cta,
@@ -582,18 +651,24 @@ html {
   .hero .hero-mini {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 0px !important;
+    gap: 0px !important; /* ✅ reduced gap between mini cards */
     width: 100% !important;
-    margin-top: 12px !important;
+    margin-top: 25px !important;
     justify-items: center !important;
   }
 
   .hero .mini-card {
     width: 100% !important;
-    max-width: 85% !important;
-    margin-top: 25px;
+    max-width: 70% !important;
+    max-height: 120px !important;
+    margin-top: 18px; /* ✅ reduced from 25px */
     text-align: center !important;
+    gap: 0px;
     padding: 14px 12px !important;
+  }
+
+  .hero .mini-card:last-child {
+    margin-bottom: 4px !important; /* ✅ space for dots under final card */
   }
 
   .hero .mini-kicker,
