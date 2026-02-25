@@ -66,14 +66,6 @@ export default function App() {
     setActive(i);
   }
 
-  // Keeping these in case you want arrows back later
-  // function prev() {
-  //   setActive((p) => (p - 1 + slides.length) % slides.length);
-  // }
-  // function next() {
-  //   setActive((p) => (p + 1) % slides.length);
-  // }
-
   return (
     <div className="page">
       {/* HERO CAROUSEL */}
