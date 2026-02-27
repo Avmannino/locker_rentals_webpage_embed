@@ -451,6 +451,7 @@ html {
 .price-unit {
   color: var(--muted);
   font-weight: 800;
+  margin-left: -8px;
 }
 
 .pricing-line {
@@ -635,7 +636,7 @@ html {
 
   .hero .hero-subtitle {
     text-align: center !important;
-    margin: 15px auto !important;
+    margin: 5px auto !important;
     max-width: 32ch !important;
     line-height: 1.25 !important;
     font-size: 18px !important;
@@ -659,7 +660,7 @@ html {
 
   .hero .hero-actions .cta,
   .hero .hero-actions .ghost {
-    width: min(100%, 220px) !important;
+    width: min(100%, 310px) !important;
     min-width: 0 !important;
     justify-content: center !important;
     text-align: center !important;
@@ -677,7 +678,7 @@ html {
 
   .hero .mini-card {
     width: 100% !important;
-    max-width: 55% !important;
+    max-width: 65% !important;
     max-height: 120px !important;
     margin-top: 18px; /* ✅ reduced from 25px */
     text-align: center !important;
