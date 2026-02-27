@@ -45,7 +45,7 @@ export default function App() {
   const toEmail = "info@wingsarena.com";
   const subject = "Locker Rental Request (Spring & Summer 2026)";
   const body =
-    "Hi Jon,\n\nI'd like to reserve a Classic Locker for Spring & Summer 2026.\n\nName:\nPhone:\nEmail:\nPreferred start date:\n\nThanks!";
+    "Hello,\n\nI'd like to inquire about renting a locker.\n\nName:\nPhone:\nEmail:\nNumber of Lockers Needed:\n\nHow'd you hear about us:";
 
   const reserveEmailHref = `mailto:${toEmail}?subject=${encodeURIComponent(
     subject
