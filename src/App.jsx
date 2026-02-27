@@ -65,21 +65,6 @@ export default function App() {
     setActive(i);
   }
 
-  // ✅ Mobile-safe smooth scroll for hero CTA
-  function scrollToPricing(e) {
-    e.preventDefault();
-    const el = document.getElementById("pricing");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-
-  // ✅ Mobile/mailto fallback trigger
-  function handleReserveClick(e) {
-    e.preventDefault();
-    window.location.href = reserveEmailHref;
-  }
-
   return (
     <div className="page">
       {/* HERO CAROUSEL */}
@@ -106,8 +91,13 @@ export default function App() {
             <p className="hero-subtitle">{slides[active].subhead}</p>
 
             <div className="hero-actions">
-              <a className="cta" href="#pricing" onClick={scrollToPricing}>
-                Lock In Your Spot
+              <a
+                className="cta"
+                href={reserveEmailHref}
+                target="_top"
+                rel="noopener noreferrer"
+              >
+                Email Us To Reserve Your Locker!
               </a>
               {/* <a className="ghost" href="#details">
                 See Features
@@ -265,7 +255,8 @@ export default function App() {
                 <a
                   className="cta cta-wide"
                   href={reserveEmailHref}
-                  onClick={handleReserveClick}
+                  target="_top"
+                  rel="noopener noreferrer"
                 >
                   Email Us To Reserve Your Locker!
                 </a>
