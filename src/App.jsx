@@ -42,7 +42,7 @@ export default function App() {
   const intervalRef = useRef(null);
 
   // ✅ Email details (default mail app via mailto)
-  const toEmail = "jwanderlingh@wingsarena.com";
+  const toEmail = "info@wingsarena.com";
   const subject = "Locker Rental Request (Spring & Summer 2026)";
   const body =
     "Hi Jon,\n\nI'd like to reserve a Classic Locker for Spring & Summer 2026.\n\nName:\nPhone:\nEmail:\nPreferred start date:\n\nThanks!";
