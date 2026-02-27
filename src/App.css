@@ -57,7 +57,7 @@ html {
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 18px 40px rgba(214, 0, 51, 0.22);
-  transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+  transition: transform 260ms ease, filter 260ms ease, box-shadow 260ms ease;
   cursor: pointer;
 }
 
@@ -65,7 +65,9 @@ html {
   transform: translateY(-1px);
   filter: brightness(1.02);
   box-shadow: 0 20px 48px rgba(214, 0, 51, 0.26);
-  background: #da01375b;
+  background:#003764;
+  color: #d60033;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .cta:active {
@@ -181,9 +183,9 @@ html {
 .hero-subtitle {
   margin-top: 50px;
   color: #ffffffc2;
-  font-size: 18px;
-  line-height: 2.15;
-  max-width: 65ch;
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 85ch;
 
   /* ✅ Reserve consistent subtitle space so buttons/cards stay locked */
   min-height: calc(2.15em * 3);
@@ -282,7 +284,7 @@ html {
 
 .section-head h2 {
   margin: 0;
-  font-size: 26px;
+  font-size: 30px;
   letter-spacing: -0.2px;
   text-align: center;
 }
@@ -298,6 +300,7 @@ html {
 .section-head-why h2 {
   margin-top: -20px;
   text-align: center !important;
+  font-size: 30px;
 }
 
 .section-head-why p {

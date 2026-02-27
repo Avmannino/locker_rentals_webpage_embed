@@ -19,19 +19,19 @@ export default function App() {
       {
         src: hero1,
         headline: "Locker Rentals Now Available!",
-        subhead: "Locker Up, Hassle-Free.",
+        subhead: "Locker Up, Travel Lighter",
       },
       {
         src: hero2,
         headline: "Keep Your Gear Steps From the Ice",
         subhead:
-          "Skip the back-and-forth. Store it once, grab it fast, hit the ice.",
+          "Skip the back-and-forth. Store it once, suit up, and hit the ice.",
       },
       {
         src: hero3,
         headline: "Secure. Monitored. Hassle-Free.",
         subhead:
-          "Your equipment stays protected and ready—so you can focus on the game.",
+          "Your equipment is monitored and protected so you can focus on your game, not your gear.",
       },
     ],
     []
@@ -182,19 +182,16 @@ export default function App() {
 
             {/* ✅ Hide on mobile only */}
             <div className="card mobile-hide-card">
-              <div className="card-title">Keep Your Car Clean</div>
+              <div className="card-title">Keep Your Home & Car Clean</div>
               <div className="card-body">
-                Keep sweaty equipment out of your trunk. Store it properly and
-                keep your ride (and home) fresher.
+                We all know that "hockey smell"... Keep sweaty equipment out of your trunk and home, and enjoy a cleaner, fresher ride and living space.
               </div>
             </div>
 
             <div className="card">
-              <div className="card-title">Heated Lockers Coming Soon!</div>
+              <div className="card-title">Less Lugging, More Skating</div>
               <div className="card-body">
-                Heated lockers will be available soon, providing an extra layer
-                of care for your gear during the colder months. Stay tuned for
-                updates on this premium option!
+                Cut down on the back-and-forth so you can spend more energy where it matters—on the ice.
               </div>
             </div>
           </div>
