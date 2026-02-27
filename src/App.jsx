@@ -5,12 +5,21 @@ import hero1 from "./assets/hero/locker-1.jpg";
 import hero2 from "./assets/hero/locker-2.jpg";
 import hero3 from "./assets/hero/locker-3.jpeg";
 
-const MONTHLY_PRICE = 49.99;
+const MONTHLY_PRICE = 49;
 const MONTHS = 6;
-const TOTAL = 249.95;
+const TOTAL = 245;
 
 function formatMoney(n) {
   return n.toLocaleString(undefined, { style: "currency", currency: "USD" });
+}
+
+function formatMoneyNoCents(n) {
+  return n.toLocaleString(undefined, {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
 }
 
 export default function App() {
@@ -29,9 +38,9 @@ export default function App() {
       },
       {
         src: hero3,
-        headline: "Secure. Monitored. Hassle-Free.",
+        headline: "Store More. Carry Less.",
         subhead:
-          "Your equipment is monitored and protected so you can focus on your game, not your gear.",
+          "Skip the heavy haul and keep your setup where you use it most.",
       },
     ],
     []
@@ -109,13 +118,13 @@ export default function App() {
                 <div className="mini-kicker">Spring Promo</div>
                 <div className="mini-strong">First Month Free</div>
                 <div className="mini-muted">
-                  {formatMoney(MONTHLY_PRICE)}/month • {MONTHS} months
+                  {formatMoneyNoCents(MONTHLY_PRICE)}/month • {MONTHS} months
                 </div>
               </div>
               <div className="mini-card">
                 <div className="mini-kicker">Location</div>
-                <div className="mini-strong">Rinkside Access</div>
-                <div className="mini-muted">A few steps from the ice</div>
+                <div className="mini-strong">Built for Busy Schedules</div>
+                <div className="mini-muted">Makes busy rink days easier</div>
               </div>
               <div className="mini-card">
                 <div className="mini-kicker">Size</div>
@@ -161,10 +170,9 @@ export default function App() {
             </div>
 
             <div className="card">
-              <div className="card-title">Secure & Monitored</div>
+              <div className="card-title">Built For Busy Schedules</div>
               <div className="card-body">
-                Your locker area is secure and monitored so you have peace of
-                mind that your gear is kept safe.
+                Makes busy rink days easier, more efficient, and more convenient
               </div>
             </div>
 
@@ -227,7 +235,7 @@ export default function App() {
               </div>
 
               <div className="pricing-price">
-                <div className="price-big">{formatMoney(MONTHLY_PRICE)}</div>
+                <div className="price-big">{formatMoneyNoCents(MONTHLY_PRICE)}</div>
                 <div className="price-unit">/month</div>
               </div>
 
@@ -246,7 +254,6 @@ export default function App() {
 
               <ul className="list">
                 <li>Full-size, rinkside locker</li>
-                <li>Secure and monitored</li>
                 <li>Quick access for practices, games, and programs</li>
                 <li>Perfect for frequent skaters and adult league players</li>
               </ul>
