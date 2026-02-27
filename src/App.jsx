@@ -45,7 +45,7 @@ export default function App() {
   const toEmail = "jwanderlingh@wingsarena.com";
   const subject = "Locker Rental Request (Spring & Summer 2026)";
   const body =
-    "Hi Jon,\n\nI’d like to reserve a Classic Locker for Spring & Summer 2026.\n\nName:\nPhone:\nEmail:\nPreferred start date:\n\nThanks!";
+    "Hi Jon,\n\nI'd like to reserve a Classic Locker for Spring & Summer 2026.\n\nName:\nPhone:\nEmail:\nPreferred start date:\n\nThanks!";
 
   const reserveEmailHref = `mailto:${toEmail}?subject=${encodeURIComponent(
     subject
@@ -63,6 +63,21 @@ export default function App() {
 
   function goTo(i) {
     setActive(i);
+  }
+
+  // ✅ Mobile-safe smooth scroll for hero CTA
+  function scrollToPricing(e) {
+    e.preventDefault();
+    const el = document.getElementById("pricing");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  // ✅ Mobile/mailto fallback trigger
+  function handleReserveClick(e) {
+    e.preventDefault();
+    window.location.href = reserveEmailHref;
   }
 
   return (
@@ -91,7 +106,7 @@ export default function App() {
             <p className="hero-subtitle">{slides[active].subhead}</p>
 
             <div className="hero-actions">
-              <a className="cta" href="#pricing">
+              <a className="cta" href="#pricing" onClick={scrollToPricing}>
                 Lock In Your Spot
               </a>
               {/* <a className="ghost" href="#details">
@@ -184,14 +199,17 @@ export default function App() {
             <div className="card mobile-hide-card">
               <div className="card-title">Keep Your Home & Car Clean</div>
               <div className="card-body">
-                We all know that "hockey smell"... Keep sweaty equipment out of your trunk and home, and enjoy a cleaner, fresher ride and living space.
+                We all know that "hockey smell"... Keep sweaty equipment out of
+                your trunk and home, and enjoy a cleaner, fresher ride and
+                living space.
               </div>
             </div>
 
             <div className="card">
               <div className="card-title">Less Lugging, More Skating</div>
               <div className="card-body">
-                Cut down on the back-and-forth so you can spend more energy where it matters—on the ice.
+                Cut down on the back-and-forth so you can spend more energy
+                where it matters—on the ice.
               </div>
             </div>
           </div>
@@ -244,7 +262,11 @@ export default function App() {
               </ul>
 
               <div className="pricing-actions">
-                <a className="cta cta-wide" href={reserveEmailHref}>
+                <a
+                  className="cta cta-wide"
+                  href={reserveEmailHref}
+                  onClick={handleReserveClick}
+                >
                   Email Us To Reserve Your Locker!
                 </a>
 

@@ -65,7 +65,7 @@ html {
   transform: translateY(-1px);
   filter: brightness(1.02);
   box-shadow: 0 20px 48px rgba(214, 0, 51, 0.26);
-  background:#003764;
+  background: #003764;
   color: #d60033;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -136,6 +136,21 @@ html {
       rgba(7, 12, 18, 0.103) 100%
     ),
     linear-gradient(180deg, rgba(7, 12, 18, 0.15) 0%, rgba(7, 12, 18, 0.60) 100%);
+}
+
+/* ✅ Prevent visual layers from blocking taps/clicks */
+.hero-slide,
+.hero-overlay {
+  pointer-events: none;
+}
+
+/* ✅ Ensure interactive content stays above hero layers */
+.hero-content,
+.hero-actions,
+.hero-actions a {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
 }
 
 .hero-content {
