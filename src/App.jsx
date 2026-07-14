@@ -94,9 +94,13 @@ export default function App() {
           ))}
 
           <div className="hero-overlay" />
+          <h1 className="page-title">
+            Locker Rentals at
+            <br />
+            Wings Arena
+          </h1>
           <div className="hero-content">
-            <div className="pill">Wings Arena</div>
-            <h1 className="hero-title">{slides[active].headline}</h1>
+            <h2 className="hero-title">{slides[active].headline}</h2>
             <p className="hero-subtitle">{slides[active].subhead}</p>
 
             <div className="hero-actions">
@@ -115,7 +119,7 @@ export default function App() {
 
             <div className="hero-mini">
               <div className="mini-card">
-                <div className="mini-kicker">Spring Promo</div>
+                <div className="mini-kicker">Promo</div>
                 <div className="mini-strong">First Month Free</div>
                 <div className="mini-muted">
                   {formatMoneyNoCents(MONTHLY_PRICE)}/month • {MONTHS} months
