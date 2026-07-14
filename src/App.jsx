@@ -95,8 +95,8 @@ export default function App() {
 
           <div className="hero-overlay" />
           <h1 className="page-title">
-            Locker Rentals at
-            <br />
+            Locker Rentals at{" "}
+            <br className="title-break" />
             Wings Arena
           </h1>
           <div className="hero-content">

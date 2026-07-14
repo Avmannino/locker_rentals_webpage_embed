@@ -164,7 +164,8 @@ html {
 .page-title {
   position: relative;
   z-index: 2;
-  max-width: 22ch;
+  max-width: none;
+  white-space: nowrap;
   text-align: center;
   font-weight: 900;
   font-size: clamp(28px, 7vw, 60px);
@@ -173,6 +174,10 @@ html {
   margin: 0 auto;
   padding: 24px 16px 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.page-title .title-break {
+  display: none;
 }
 
 .hero-title {
@@ -555,8 +560,13 @@ html {
   .page-title {
     font-size: clamp(36px, 10vw, 48px) !important;
     max-width: 20ch !important;
+    white-space: normal !important;
     margin: 0 auto !important;
     padding: 22px 12px 0 !important;
+  }
+
+  .page-title .title-break {
+    display: inline !important;
   }
 
   /* ✅ Mobile hero/carousel full-bleed (no rounded corners) */
